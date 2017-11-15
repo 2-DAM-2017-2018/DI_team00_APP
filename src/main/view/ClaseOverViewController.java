@@ -1,5 +1,5 @@
 
-package app_reserva_view;
+package main.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
