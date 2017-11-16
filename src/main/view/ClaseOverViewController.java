@@ -1,4 +1,3 @@
-
 package main.view;
 
 import javafx.fxml.FXML;
