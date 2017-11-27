@@ -8,8 +8,8 @@ import main.MainApp;
 public class ClaseOverViewController 
 {
    
-//    @FXML
-//    private Button reservaButton;
+    @FXML
+    private Button reservaButton;
   
     private MainApp mainApp;
 

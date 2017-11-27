@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="main.view.ClaseOverViewController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ClaseOverViewController">
    <children>
       <SplitPane prefHeight="400.0" prefWidth="296.0">
          <items>
@@ -20,7 +19,9 @@
       </SplitPane>
       <AnchorPane layoutX="294.0" prefHeight="402.0" prefWidth="304.0">
          <children>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" text="Reservar" />
+            <Button layoutX="14.0" layoutY="76.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" text="Reservar" />
+            <Label layoutX="21.0" layoutY="14.0" text="Reservado" />
+            <Label layoutX="104.0" layoutY="14.0" text="Label" />
          </children>
       </AnchorPane>
    </children>
