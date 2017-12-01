@@ -12,14 +12,14 @@
          <items>
             <TableView prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="294.0" text="Clases disponibles" />
+                <TableColumn fx:id="claseColumn" prefWidth="294.0" text="Clases disponibles" />
               </columns>
             </TableView>
          </items>
       </SplitPane>
       <AnchorPane layoutX="294.0" prefHeight="402.0" prefWidth="304.0">
          <children>
-            <Button layoutX="14.0" layoutY="76.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" text="Reservar" />
+            <Button fx:id="reservaButton" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleNewReserva" prefHeight="45.0" prefWidth="145.0" text="Reservar" />
             <Label layoutX="21.0" layoutY="14.0" text="Reservado" />
             <Label layoutX="104.0" layoutY="14.0" text="Label" />
          </children>

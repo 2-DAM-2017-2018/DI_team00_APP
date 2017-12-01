@@ -20,8 +20,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @author pedro
  */
 public class Clase {
-    /*
-    private final StringProperty clase;
+    
+    private final StringProperty nombreClase;
     private final StringProperty horaReserva;
     private final StringProperty horaSalida;
     private final StringProperty nombre;
@@ -30,8 +30,131 @@ public class Clase {
     private final IntegerProperty telephone;
     private final StringProperty email;
 
+ 
     
-*/
+    
+    public Clase(String nombreClase) {
+        this.nombreClase = new SimpleStringProperty(nombreClase);
+        this.horaReserva = new SimpleStringProperty("00:00");
+        this.horaSalida = new SimpleStringProperty("00:00");
+        this.nombre = new SimpleStringProperty(" ");
+        this.apellido = new SimpleStringProperty(" ");
+        this.dni = new SimpleStringProperty("00000000Z");
+        this.telephone = new SimpleIntegerProperty(654987321);
+        this.email = new SimpleStringProperty("example@email.com");
+        
+    }
+ 
+    public Clase() {
+         this(null);
+    }
+
+
+    public String getNombreClase() {
+        return nombreClase.get();
+    }
+
+    public void setNombreClase(String nombreClase) {
+        this.nombreClase.set(nombreClase);
+    }
+
+    public StringProperty nombreClaseProperty() {
+        return nombreClase;
+    }
+    
+    public String getHoraReserva() {
+        return horaReserva.get();
+    }
+
+    public void setHoraReserva(String horaReserva) {
+        this.horaReserva.set(horaReserva);
+    }
+
+    public StringProperty horaReservaProperty() {
+        return horaReserva;
+    }
+    
+    public String getHoraSalida() {
+        return horaReserva.get();
+    }
+
+    public void setHoraSalida(String horaSalida) {
+        this.horaSalida.set(horaSalida);
+    }
+
+    public StringProperty horaSalidaProperty() {
+        return horaSalida;
+    }
+    
+    public String getNombre() {
+        return horaReserva.get();
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre.set(nombre);
+    }
+
+    public StringProperty nombreProperty() {
+        return nombre;
+    }
+    
+    public String getApellido() {
+        return apellido.get();
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido.set(apellido);
+    }
+
+    public StringProperty apellidoProperty() {
+        return apellido;
+    }
+    
+    public String getDni() {
+        return dni.get();
+    }
+
+    public void setDni(String dni) {
+        this.dni.set(dni);
+    }
+
+    public StringProperty dniProperty() {
+        return dni;
+    }
+    
+    public int getTelephone() {
+        return telephone.get();
+    }
+
+    public void setTelephone(int telephone) {
+        this.telephone.set(telephone);
+    }
+
+    public IntegerProperty postalCodeProperty() {
+        return telephone;
+    }
+    
+    public String getEmail() {
+        return dni.get();
+    }
+
+    public void setEmail(String email) {
+        this.email.set(email);
+    }
+
+    public StringProperty emailProperty() {
+        return email;
+    }
+    
+    
+
+  
+    
+    
+    
+
+    
+    
     
     
     
