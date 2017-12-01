@@ -8,6 +8,8 @@ package main;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -24,19 +26,33 @@ public class MainApp extends Application {
     private Stage primaryStage;
     private AnchorPane rootLayout;
     
+    private ObservableList<Clase> claseData = FXCollections.observableArrayList();
+    
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("reservaApp");
         
         // set the application icon
-
+        
+        
         initRootLayout();
 
     }
 
     public MainApp() {
+        
+        claseData.add(new Clase("Biblioteca"));
+        claseData.add(new Clase("Gimnasio"));
+        claseData.add(new Clase("Taller"));
+        claseData.add(new Clase("Aula musica"));
+        claseData.add(new Clase("Aula 1"));
+        claseData.add(new Clase("Aula 2"));
 
+    }
+    
+     public ObservableList<Clase> getClaseData() {
+        return claseData;
     }
 
     public void initRootLayout() {
@@ -70,7 +86,8 @@ public class MainApp extends Application {
         launch(args);
     }
     
-    public boolean showPersonEditDialog(Clase clase) {
+    
+    public boolean showReservar(Clase clase) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
