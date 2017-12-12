@@ -25,7 +25,7 @@ public class ClaseOverViewController {
     private void initialize() {
         // Initialize the person table with the two columns.
         claseColumn.setCellValueFactory(cellData -> cellData.getValue().nombreClaseProperty());
-
+        // omment
     }
 
     @FXML
