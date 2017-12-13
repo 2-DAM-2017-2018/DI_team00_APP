@@ -130,7 +130,7 @@ public class Clase {
         this.telephone.set(telephone);
     }
 
-    public IntegerProperty postalCodeProperty() {
+    public IntegerProperty telephoneProperty() {
         return telephone;
     }
     

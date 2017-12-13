@@ -64,13 +64,15 @@ public class ReservarController {
         this.clase = clase;
         
         
-        clase.setHoraReserva(horaReservaField.getText());
-        clase.setHoraSalida(horaSalidaField.getText());
-        clase.setNombre(nombreField.getText());
-        clase.setApellido(apellidosField.getText());
-        clase.setDni(dniField.getText());
-        clase.setTelephone(Integer.parseInt(telephoneField.getText()));
-        clase.setEmail(emailField.getText());
+        horaReservaField.setText(clase.getHoraReserva());
+        horaSalidaField.setText(clase.getHoraSalida());
+        nombreField.setText(clase.getNombre());
+        apellidosField.setText(clase.getApellido());
+        dniField.setText(clase.getDni());
+        telephoneField.setText(Integer.toString(clase.getTelephone()));
+        emailField.setText(clase.getEmail());
+        
+        
 
     }
 

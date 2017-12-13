@@ -7,7 +7,6 @@ package main;
 
 import java.io.IOException;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.model.Clase;
+import main.view.ClaseOverViewController;
 import main.view.ReservarController;
 /**
  *
@@ -67,8 +67,8 @@ public class MainApp extends Application {
             primaryStage.setScene(scene);
 
             // Give the controller access to the main app.
-//            RootLayoutController controller = loader.getController();
-//            controller.setMainApp(this);
+            ClaseOverViewController controller = loader.getController();
+            controller.setMainApp(this);
 
             primaryStage.show();
         } catch (IOException e) {
