@@ -32,42 +32,37 @@
             <Label text="DNI" GridPane.rowIndex="5" />
             <Label text="Numero telefono" GridPane.rowIndex="6" />
             <Label text="Email" GridPane.rowIndex="7" />
-            <TextField fx:id="horaReservaField" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <contextMenu>
-                  <ContextMenu>
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="08:00-09:00" />
-                        <MenuItem mnemonicParsing="false" text="09:0-10:00" />
-                        <MenuItem mnemonicParsing="false" text="10:00-11:00" />
-                        <MenuItem mnemonicParsing="false" text="11:00-11:30" />
-                        <MenuItem mnemonicParsing="false" text="11:30-12:30" />
-                        <MenuItem mnemonicParsing="false" text="12:30-13:30" />
-                        <MenuItem mnemonicParsing="false" text="13:30-14:30" />
-                        <MenuItem mnemonicParsing="false" text="17:00-18:00" />
-                        <MenuItem mnemonicParsing="false" text="18:00-19:00" />
-                    </items>
-                  </ContextMenu>
-               </contextMenu></TextField>
             <TextField fx:id="nombreField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="apellidosField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="dniField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="telephoneField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="claseField" GridPane.columnIndex="1">
-               <contextMenu>
-                  <ContextMenu>
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Aula 1" />
-                        <MenuItem mnemonicParsing="false" text="Aula 2" />
-                        <MenuItem mnemonicParsing="false" text="Aula 3" />
-                        <MenuItem mnemonicParsing="false" text="Aula 4" />
-                        <MenuItem mnemonicParsing="false" text="Gimnasio" />
-                        <MenuItem mnemonicParsing="false" text="Aula de música" />
-                        <MenuItem mnemonicParsing="false" text="Biblioteca" />
-                    </items>
-                  </ContextMenu>
-               </contextMenu></TextField>
             <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Selecciona una clase" GridPane.columnIndex="1">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Aula 1" />
+                <MenuItem mnemonicParsing="false" text="Aula 2" />
+                  <MenuItem mnemonicParsing="false" text="Aula 3" />
+                  <MenuItem mnemonicParsing="false" text="Aula 4" />
+                  <MenuItem mnemonicParsing="false" text="Taller" />
+                  <MenuItem mnemonicParsing="false" text="Gimnasio" />
+                  <MenuItem mnemonicParsing="false" text="Aula de música" />
+                  <MenuItem mnemonicParsing="false" text="Aula de informática" />
+              </items>
+            </SplitMenuButton>
+            <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="Selecciona una hora" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <items>
+                <MenuItem mnemonicParsing="false" text="08:00-09:00" />
+                <MenuItem mnemonicParsing="false" text="09:00-10:00" />
+                  <MenuItem mnemonicParsing="false" text="10:00-11:00" />
+                  <MenuItem mnemonicParsing="false" text="11:00-11:30" />
+                  <MenuItem mnemonicParsing="false" text="11:30-12:30" />
+                  <MenuItem mnemonicParsing="false" text="12:30-13:30" />
+                  <MenuItem mnemonicParsing="false" text="13:30-14:30" />
+                  <MenuItem mnemonicParsing="false" text="17:00-18:00" />
+                  <MenuItem mnemonicParsing="false" text="18:00-19:00" />
+              </items>
+            </SplitMenuButton>
          </children>
       </GridPane>
       <Button layoutX="216.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />

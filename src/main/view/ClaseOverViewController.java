@@ -1,5 +1,6 @@
 package main.view;
 
+//import java.time.LocalDateTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -28,6 +29,12 @@ public class ClaseOverViewController {
         claseColumn.setCellValueFactory(cellData -> cellData.getValue().nombreClaseProperty());
         // omment
     }
+    /*@FXML
+    public void mostrarHora() 
+    {
+        LocalDateTime ahora = LocalDateTime.now();
+        System.out.println("La hora es: " + ahora);
+    }*/
 
     @FXML
     private void handleNewReserva() {
