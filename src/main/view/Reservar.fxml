@@ -37,8 +37,8 @@
             <TextField fx:id="dniField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="telephoneField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Selecciona una clase" GridPane.columnIndex="1">
+            <DatePicker fx:id="fechaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <SplitMenuButton fx:id="claseField" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Selecciona una clase" GridPane.columnIndex="1">
               <items>
                 <MenuItem mnemonicParsing="false" text="Aula 1" />
                 <MenuItem mnemonicParsing="false" text="Aula 2" />
@@ -50,7 +50,7 @@
                   <MenuItem mnemonicParsing="false" text="Aula de informática" />
               </items>
             </SplitMenuButton>
-            <SplitMenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="Selecciona una hora" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <SplitMenuButton fx:id="horaField" mnemonicParsing="false" prefHeight="25.0" prefWidth="162.0" text="Selecciona una hora" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <items>
                 <MenuItem mnemonicParsing="false" text="08:00-09:00" />
                 <MenuItem mnemonicParsing="false" text="09:00-10:00" />
@@ -65,7 +65,8 @@
             </SplitMenuButton>
          </children>
       </GridPane>
-      <Button layoutX="216.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
-      <Button layoutX="300.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
+      <Button layoutX="342.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
+      <Button layoutX="388.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
+      <Button layoutX="128.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleAñadirClase" text="Button" />
    </children>
 </AnchorPane>

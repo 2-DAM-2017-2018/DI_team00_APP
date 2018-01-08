@@ -23,7 +23,7 @@ public class Clase {
     
     private final StringProperty nombreClase;
     private final StringProperty horaReserva;
-    private final StringProperty horaSalida;
+    private final StringProperty fechaReserva;
     private final StringProperty nombre;
     private final StringProperty apellido;
     private final StringProperty dni;
@@ -35,13 +35,13 @@ public class Clase {
     
     public Clase(String nombreClase) {
         this.nombreClase = new SimpleStringProperty(nombreClase);
-        this.horaReserva = new SimpleStringProperty("00:00");
-        this.horaSalida = new SimpleStringProperty("00:00");
+        this.horaReserva = new SimpleStringProperty(" ");
+        this.fechaReserva = new SimpleStringProperty("");
         this.nombre = new SimpleStringProperty(" ");
         this.apellido = new SimpleStringProperty(" ");
-        this.dni = new SimpleStringProperty("00000000Z");
-        this.telephone = new SimpleIntegerProperty(654987321);
-        this.email = new SimpleStringProperty("example@email.com");
+        this.dni = new SimpleStringProperty(" ");
+        this.telephone = new SimpleIntegerProperty(0);
+        this.email = new SimpleStringProperty(" ");
         
     }
  
@@ -74,16 +74,16 @@ public class Clase {
         return horaReserva;
     }
     
-    public String getHoraSalida() {
-        return horaReserva.get();
+    public String getFechaReserva() {
+        return fechaReserva.get();
     }
 
-    public void setHoraSalida(String horaSalida) {
-        this.horaSalida.set(horaSalida);
+    public void setFechaReserva(String fechaReserva) {
+        this.fechaReserva.set(fechaReserva);
     }
 
-    public StringProperty horaSalidaProperty() {
-        return horaSalida;
+    public StringProperty fechaReservaProperty() {
+        return fechaReserva;
     }
     
     public String getNombre() {
@@ -145,6 +145,8 @@ public class Clase {
     public StringProperty emailProperty() {
         return email;
     }
+    
+    
     
     
 

@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.model.Clase;
@@ -26,11 +28,11 @@ import main.model.Clase;
 public class ReservarController {
 
     @FXML
-    private TextField claseField;
+    private SplitMenuButton claseField;
     @FXML
-    private TextField horaReservaField;
+    private SplitMenuButton horaField;
     @FXML
-    private TextField horaSalidaField;
+    private DatePicker fechaField;
     @FXML
     private TextField nombreField;
     @FXML
@@ -63,88 +65,89 @@ public class ReservarController {
 
     public void setClase(Clase clase) {
         this.clase = clase;
-        
-        
-        horaReservaField.setText(clase.getHoraReserva());
-        horaSalidaField.setText(clase.getHoraSalida());
+
+        claseField.setText(clase.getNombreClase());
+        horaField.setText(clase.getHoraReserva());
+        //fechaField.setText(clase.getFechaReserva()); 
         nombreField.setText(clase.getNombre());
         apellidosField.setText(clase.getApellido());
         dniField.setText(clase.getDni());
         telephoneField.setText(Integer.toString(clase.getTelephone()));
         emailField.setText(clase.getEmail());
-        
-        
 
     }
 
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            
-            clase.setHoraReserva(horaReservaField.getText());
-            clase.setHoraSalida(horaSalidaField.getText());
+            clase.setNombreClase(claseField.getText());
+            clase.setHoraReserva(horaField.getText());
+           // clase.setFechaReserva(fechaField.getText());
             clase.setNombre(nombreField.getText());
             clase.setApellido(apellidosField.getText());
             clase.setDni(dniField.getText());
             clase.setTelephone(Integer.parseInt(telephoneField.getText()));
             clase.setEmail(emailField.getText());
-            
+
         }
     }
-  
+
+    @FXML
+    public void handleAñadirClase() {
+
+    }
+
     @FXML
     private void handleCancel() {
         dialogStage.close();
     }
-    
+
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (horaReservaField.getText() == null || horaReservaField.getText().length() == 0) {
-            errorMessage += "Hora de reserva no valida!\n"; 
+        if (horaField.getText() == null || horaField.getText().length() == 0) {
+            errorMessage += "Hora de reserva no valida!\n";
         }
-        if (horaSalidaField.getText() == null || horaSalidaField.getText().length() == 0) {
-            errorMessage += "Hora de salida no valida!\n"; 
-        }
+
         if (claseField.getText() == null || claseField.getText().length() == 0) {
-            errorMessage += "Clase no valida!\n"; 
+            errorMessage += "Clase no valida!\n";
         }
 
         if (nombreField.getText() == null || nombreField.getText().length() == 0) {
-            errorMessage += "Nombre no valido!\n"; 
+            errorMessage += "Nombre no valido!\n";
         }
-        
+
         if (apellidosField.getText() == null || apellidosField.getText().length() == 0) {
-            errorMessage += "Apellido no valido!\n"; 
+            errorMessage += "Apellido no valido!\n";
         }
-        
+
         if (telephoneField.getText() == null || telephoneField.getText().length() == 0) {
-            errorMessage += "No valid telephone!\n"; 
+            errorMessage += "Telefono no valido!\n";
         } else {
             // try to parse the postal code into an int.
             try {
                 Integer.parseInt(telephoneField.getText());
             } catch (NumberFormatException e) {
-                errorMessage += "No valid telephone (must be an integer)!\n"; 
+                errorMessage += "Telefono no valido (debe ser un entero)!\n";
             }
         }
-        
+
         if (emailField.getText() == null || emailField.getText().length() == 0) {
-            errorMessage += "No valid email!\n"; 
-        }else{
-            
-            try{
-                
+            errorMessage += "Email no valido!\n";
+        } else {
+
+            try {
+
                 Pattern pattern = Pattern.compile(PATTERN_EMAIL);
                 Matcher matcher = pattern.matcher(emailField.getText());
-                if(!matcher.matches()){
-                    errorMessage += "No valid email!/";
+                if (!matcher.matches()) {
+                    errorMessage += "Email no valido!/";
                 }
-            }catch(NumberFormatException e){
-                errorMessage += "No valid email!/n";
+            } catch (NumberFormatException e) {
+                errorMessage += "Email no valido!/n";
             }
         }
-        
+
         if (errorMessage.length() == 0) {
             return true;
         } else {
