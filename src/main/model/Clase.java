@@ -26,12 +26,8 @@ public class Clase {
     private final StringProperty fechaReserva;
     private final StringProperty nombre;
     private final StringProperty apellido;
-    private final StringProperty dni;
-    private final IntegerProperty telephone;
-    private final StringProperty email;
-
- 
     
+
     
     public Clase(String nombreClase) {
         this.nombreClase = new SimpleStringProperty(nombreClase);
@@ -39,9 +35,7 @@ public class Clase {
         this.fechaReserva = new SimpleStringProperty("");
         this.nombre = new SimpleStringProperty(" ");
         this.apellido = new SimpleStringProperty(" ");
-        this.dni = new SimpleStringProperty(" ");
-        this.telephone = new SimpleIntegerProperty(0);
-        this.email = new SimpleStringProperty(" ");
+        
         
     }
  
@@ -109,56 +103,5 @@ public class Clase {
     public StringProperty apellidoProperty() {
         return apellido;
     }
-    
-    public String getDni() {
-        return dni.get();
-    }
-
-    public void setDni(String dni) {
-        this.dni.set(dni);
-    }
-
-    public StringProperty dniProperty() {
-        return dni;
-    }
-    
-    public int getTelephone() {
-        return telephone.get();
-    }
-
-    public void setTelephone(int telephone) {
-        this.telephone.set(telephone);
-    }
-
-    public IntegerProperty telephoneProperty() {
-        return telephone;
-    }
-    
-    public String getEmail() {
-        return dni.get();
-    }
-
-    public void setEmail(String email) {
-        this.email.set(email);
-    }
-
-    public StringProperty emailProperty() {
-        return email;
-    }
-    
-    
-    
-    
-
-  
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
+       
 }

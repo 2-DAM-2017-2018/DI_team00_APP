@@ -6,6 +6,7 @@
 package main;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,8 @@ import main.view.ReservarController;
  */
 public class MainApp extends Application {
   
+    
+    
     private Stage primaryStage;
     private AnchorPane rootLayout;
     

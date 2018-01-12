@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ReservarController">
    <children>
-      <GridPane layoutX="128.0" layoutY="57.0" prefHeight="188.0" prefWidth="322.0">
+      <GridPane layoutX="128.0" layoutY="103.0" prefHeight="157.0" prefWidth="322.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -19,9 +19,6 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Clase" />
@@ -29,14 +26,8 @@
             <Label text="Calendario" GridPane.rowIndex="2" />
             <Label text="Nombre" GridPane.rowIndex="3" />
             <Label text="Apellidos" GridPane.rowIndex="4" />
-            <Label text="DNI" GridPane.rowIndex="5" />
-            <Label text="Numero telefono" GridPane.rowIndex="6" />
-            <Label text="Email" GridPane.rowIndex="7" />
             <TextField fx:id="nombreField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="apellidosField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="dniField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="telephoneField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <DatePicker fx:id="fechaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <SplitMenuButton fx:id="claseField" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Selecciona una clase" GridPane.columnIndex="1">
               <items>
@@ -67,6 +58,6 @@
       </GridPane>
       <Button layoutX="342.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
       <Button layoutX="388.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
-      <Button layoutX="128.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleAñadirClase" text="Button" />
+      <Button layoutX="128.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleAñadirClase" text="Añadir Clase" />
    </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ package main.view;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,18 +38,12 @@ public class ReservarController {
     private TextField nombreField;
     @FXML
     private TextField apellidosField;
-    @FXML
-    private TextField dniField;
-    @FXML
-    private TextField telephoneField;
-    @FXML
-    private TextField emailField;
+    
 
     private Stage dialogStage;
     private Clase clase;
     private boolean okClicked = false;
-    private final String PATTERN_EMAIL
-            = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$";
+    
 
     @FXML
     private void initialize() {
@@ -71,24 +66,24 @@ public class ReservarController {
         //fechaField.setText(clase.getFechaReserva()); 
         nombreField.setText(clase.getNombre());
         apellidosField.setText(clase.getApellido());
-        dniField.setText(clase.getDni());
-        telephoneField.setText(Integer.toString(clase.getTelephone()));
-        emailField.setText(clase.getEmail());
+        
 
     }
 
     @FXML
     private void handleOk() {
+        
+        ArrayList<Clase> listaClasesReservadas = new ArrayList<>();
+        
         if (isInputValid()) {
             clase.setNombreClase(claseField.getText());
             clase.setHoraReserva(horaField.getText());
            // clase.setFechaReserva(fechaField.getText());
             clase.setNombre(nombreField.getText());
             clase.setApellido(apellidosField.getText());
-            clase.setDni(dniField.getText());
-            clase.setTelephone(Integer.parseInt(telephoneField.getText()));
-            clase.setEmail(emailField.getText());
-
+            
+            
+            listaClasesReservadas.add(clase);
         }
     }
 
@@ -119,34 +114,7 @@ public class ReservarController {
 
         if (apellidosField.getText() == null || apellidosField.getText().length() == 0) {
             errorMessage += "Apellido no valido!\n";
-        }
-
-        if (telephoneField.getText() == null || telephoneField.getText().length() == 0) {
-            errorMessage += "Telefono no valido!\n";
-        } else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(telephoneField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "Telefono no valido (debe ser un entero)!\n";
-            }
-        }
-
-        if (emailField.getText() == null || emailField.getText().length() == 0) {
-            errorMessage += "Email no valido!\n";
-        } else {
-
-            try {
-
-                Pattern pattern = Pattern.compile(PATTERN_EMAIL);
-                Matcher matcher = pattern.matcher(emailField.getText());
-                if (!matcher.matches()) {
-                    errorMessage += "Email no valido!/";
-                }
-            } catch (NumberFormatException e) {
-                errorMessage += "Email no valido!/n";
-            }
-        }
+        } 
 
         if (errorMessage.length() == 0) {
             return true;
