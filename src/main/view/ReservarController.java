@@ -17,8 +17,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import main.MainApp;
 import main.model.Clase;
 
 /**
@@ -28,16 +31,18 @@ import main.model.Clase;
  */
 public class ReservarController {
 
+    
+
     @FXML
-    private SplitMenuButton claseField;
+    private TextField nombreClaseField;
     @FXML
-    private SplitMenuButton horaField;
+    private TextField fechaField;
     @FXML
-    private DatePicker fechaField;
+    private Button ok;
     @FXML
-    private TextField nombreField;
+    private Button cancelar;
     @FXML
-    private TextField apellidosField;
+    private Button nuevaClase;
     
 
     private Stage dialogStage;
@@ -47,75 +52,55 @@ public class ReservarController {
 
     @FXML
     private void initialize() {
+
     }
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
-    public boolean isOkClicked() {
-        return okClicked;
-
-    }
-
     public void setClase(Clase clase) {
         this.clase = clase;
-
-        claseField.setText(clase.getNombreClase());
-        horaField.setText(clase.getHoraReserva());
-        //fechaField.setText(clase.getFechaReserva()); 
-        nombreField.setText(clase.getNombre());
-        apellidosField.setText(clase.getApellido());
         
+        nombreClaseField.setText(clase.getNombreClase());
+        fechaField.setText(clase.getFechaReserva());
+
+    }
+    
+    public boolean isOkClicked() {
+        return okClicked;
 
     }
 
     @FXML
     private void handleOk() {
         
-        ArrayList<Clase> listaClasesReservadas = new ArrayList<>();
-        
         if (isInputValid()) {
-            clase.setNombreClase(claseField.getText());
-            clase.setHoraReserva(horaField.getText());
-           // clase.setFechaReserva(fechaField.getText());
-            clase.setNombre(nombreField.getText());
-            clase.setApellido(apellidosField.getText());
+            clase.setNombreClase(nombreClaseField.getText());
+            clase.setNombreClase(fechaField.getText());
             
-            
-            listaClasesReservadas.add(clase);
+            okClicked = true;
+            dialogStage.close();
         }
-    }
-
-    @FXML
-    public void handleAñadirClase() {
-
     }
 
     @FXML
     private void handleCancel() {
+        
         dialogStage.close();
     }
+    
 
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (horaField.getText() == null || horaField.getText().length() == 0) {
-            errorMessage += "Hora de reserva no valida!\n";
+        if (nombreClaseField.getText() == null || nombreClaseField.getText().length() == 0) {
+            errorMessage += "No valid nombre de clase!\n"; 
         }
-
-        if (claseField.getText() == null || claseField.getText().length() == 0) {
-            errorMessage += "Clase no valida!\n";
+        if (fechaField.getText() == null || fechaField.getText().length() == 0) {
+            errorMessage += "No valid fecha!\n"; 
         }
-
-        if (nombreField.getText() == null || nombreField.getText().length() == 0) {
-            errorMessage += "Nombre no valido!\n";
-        }
-
-        if (apellidosField.getText() == null || apellidosField.getText().length() == 0) {
-            errorMessage += "Apellido no valido!\n";
-        } 
-
+        
         if (errorMessage.length() == 0) {
             return true;
         } else {

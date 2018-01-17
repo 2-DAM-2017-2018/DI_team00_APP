@@ -32,25 +32,26 @@ public class MainApp extends Application {
     private ObservableList<Clase> claseData = FXCollections.observableArrayList();
     
     @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("reservaApp");
+    public void start(Stage stage) {
+        this.primaryStage = stage;
+        this.primaryStage.setTitle("App de Reserva");
         
         // set the application icon
         
         
-        initRootLayout();
+        initClaseOverView();
+        
 
     }
 
     public MainApp() {
+        claseData.add(new Clase("Aula 1", "15/01/2018"));
+        claseData.add(new Clase("Aula 1", "16/01/2018"));
+        claseData.add(new Clase("Aula 1", "02/01/2018"));
+        claseData.add(new Clase("Aula 1", "13/01/2018"));
+        claseData.add(new Clase("Aula 1", "20/01/2018"));
+        claseData.add(new Clase("Aula 1", "29/01/2018"));
         
-        claseData.add(new Clase("Biblioteca"));
-        claseData.add(new Clase("Gimnasio"));
-        claseData.add(new Clase("Taller"));
-        claseData.add(new Clase("Aula musica"));
-        claseData.add(new Clase("Aula 1"));
-        claseData.add(new Clase("Aula 2"));
 
     }
     
@@ -58,7 +59,7 @@ public class MainApp extends Application {
         return claseData;
     }
 
-    public void initRootLayout() {
+    public void initClaseOverView() {
         try {
              // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
@@ -81,13 +82,7 @@ public class MainApp extends Application {
         
     } 
     
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+    
     
     
     public boolean showReservar(Clase clase) {
@@ -107,8 +102,8 @@ public class MainApp extends Application {
 
             // Set the person into the controller.
             ReservarController controller = loader.getController();
-            //controller.setReserva(dialogStage);
-            //controller.setPerson(clase);
+            
+            controller.setDialogStage(dialogStage);
 
             // Set the dialog icon.
     //        dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
@@ -122,6 +117,16 @@ public class MainApp extends Application {
             return false;
         }
     }
+    
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+   
   
 }
 
