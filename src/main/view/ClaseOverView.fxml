@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ClaseOverViewController">
+   <children>
+      <SplitPane prefHeight="400.0" prefWidth="296.0">
+         <items>
+            <TableView fx:id="claseTable" prefHeight="179.0" prefWidth="294.0">
+              <columns>
+                <TableColumn fx:id="claseColumn" prefWidth="144.0" text="Clases Reservadas" />
+                  <TableColumn fx:id="fechaColumn" prefWidth="150.0" text="Fecha" />
+              </columns>
+            </TableView>
+         </items>
+      </SplitPane>
+      <AnchorPane layoutX="296.0" prefHeight="402.0" prefWidth="304.0">
+         <children>
+            <Button fx:id="reservaButton" layoutX="14.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleNewReserva" prefHeight="40.0" prefWidth="152.0" text="Reservar clase" />
+            <Label layoutX="16.0" layoutY="70.0" text="Nombre de la clase: " />
+            <Label fx:id="nombreClaseLabel" layoutX="200.0" layoutY="70.0" />
+            <Label layoutX="16.0" layoutY="110.0" text="Fecha de la reserva de la clase: " />
+            <Label fx:id="fechaLabel" layoutX="200.0" layoutY="110.0" />
+            <Button fx:id="deleteButton" layoutX="16.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="40.0" prefWidth="152.0" text="Eliminar reserva" />
+            <Label layoutX="16.0" layoutY="152.0" text="Reservado por:" />
+            <Label fx:id="nombreLabel" layoutX="131.0" layoutY="152.0" />
+            <MenuBar layoutY="2.0" prefHeight="17.0" prefWidth="72.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Archivo">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Abrir" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Guardar" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Guardar como..." />
+                    <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Cerrar" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
