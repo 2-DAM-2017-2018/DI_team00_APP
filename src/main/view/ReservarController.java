@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.SplitMenuButton;
@@ -45,6 +46,8 @@ public class ReservarController {
     private TextField nombreField;
     @FXML
     private DatePicker calendario = new DatePicker();
+    @FXML
+    private ChoiceBox nombreClaseField2;
     
     
     
@@ -84,11 +87,12 @@ public class ReservarController {
         this.dialogStage = dialogStage;
     }
 
-    public void setClase(Clase clase) {
+    public void setClase(Clase clase) 
+    {
         this.clase = clase;
         
-        nombreClaseField.setText(clase.getNombreClase());
-//        fechaField.setText(clase.getFechaReserva());
+        //nombreClaseField.setText(clase.getNombreClase());
+        nombreClaseField2.setItems(FXCollections.observableArrayList("Aula 1","Aula 2","Aula 3","Aula de informática","Taller","Gimnasio"));
         nombreField.setText(clase.getNombre());
         
 
@@ -104,7 +108,9 @@ public class ReservarController {
         
         if (isInputValid()) {
             
-            clase.setNombreClase(nombreClaseField.getText());
+           // clase.setNombreClase();
+            //clase.setNombreClase(nombreClaseField2.Integer.parseInt(nombreClaseField2.getValue().toString()));
+            clase.setNombreClase(nombreClaseField2.getValue().toString());
             String date = calendario.getValue().format(DateTimeFormatter.ISO_DATE);
             clase.setFechaReserva(date);
             clase.setNombre(nombreField.getText());
@@ -126,9 +132,9 @@ public class ReservarController {
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (nombreClaseField.getText() == null || nombreClaseField.getText().length() == 0) {
+        /*if (nombreClaseField.getText() == null || nombreClaseField.getText().length() == 0) {
             errorMessage += "Nombre de clase no válido!\n"; 
-        }
+        }*/
 //        if (calendario.getValue().format(DateTimeFormatter.ISO_DATE) == null || calendario.getValue().format(DateTimeFormatter.ISO_DATE).length() == 0 ) {
 //            System.out.println("date not valid ??????? ");
 //            errorMessage += "Fecha no valida!\n"; 

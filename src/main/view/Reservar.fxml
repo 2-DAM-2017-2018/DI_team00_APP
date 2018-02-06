@@ -11,10 +11,10 @@
     <Button fx:id="ok" layoutX="206.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
     <Button fx:id="cancelar" layoutX="314.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
     <Label layoutX="160.0" layoutY="126.0" text="Nombre de la clase: " />
-    <TextField fx:id="nombreClaseField" layoutX="302.0" layoutY="122.0" />
     <Label layoutX="160.0" layoutY="192.0" text="Fecha de la reserva: " />
-    <Label layoutX="160.0" layoutY="65.0" text="Tu nombre: " />
+    <Label layoutX="160.0" layoutY="65.0" text=" Nombre: " />
     <TextField fx:id="nombreField" layoutX="302.0" layoutY="61.0" />
     <DatePicker fx:id="calendario" layoutX="302.0" layoutY="188.0" prefHeight="25.0" prefWidth="149.0" />
+      <ChoiceBox fx:id="nombreClaseField2" layoutX="301.0" layoutY="122.0" prefWidth="150.0" />
   </children>
 </AnchorPane>
