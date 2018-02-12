@@ -52,8 +52,8 @@ public class MainApp extends Application {
     }
 
     public MainApp() {
-        claseData.add(new Clase("Aula 1", "2018-01-09", "Pedro"));
-        claseData.add(new Clase("Aula 1", "2018-02-10", "Antonio"));
+        claseData.add(new Clase("Aula 1", "2018-01-09", "Pedro", "08:00-09:00"));
+        claseData.add(new Clase("Aula 1", "2018-02-10", "Antonio", "09:00-10:00"));
        
         
 

@@ -29,6 +29,8 @@ public class ClaseOverViewController {
     private TableColumn<Clase, String> claseColumn;
     @FXML
     private TableColumn<Clase, String> fechaColumn;
+    @FXML
+    private TableColumn<Clase, String> horaColumn;
 
     @FXML
     private Label nombreClaseLabel;
@@ -36,7 +38,9 @@ public class ClaseOverViewController {
     private Label fechaLabel;
     @FXML
     private Label nombreLabel;
-
+    @FXML
+    private Label horaLabel;
+    
     private MainApp mainApp;
 
     public ClaseOverViewController() {
@@ -48,6 +52,7 @@ public class ClaseOverViewController {
         // Initialize the person table with the two columns.
         claseColumn.setCellValueFactory(cellData -> cellData.getValue().nombreClaseProperty());
         fechaColumn.setCellValueFactory(cellData -> cellData.getValue().fechaReservaProperty());
+        horaColumn.setCellValueFactory(cellData -> cellData.getValue().horaReservaProperty());
         showClaseDetails(null);
 
         claseTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showClaseDetails(newValue));
@@ -68,12 +73,13 @@ public class ClaseOverViewController {
             nombreClaseLabel.setText(clase.getNombreClase());
             fechaLabel.setText(clase.getFechaReserva());
             nombreLabel.setText(clase.getNombre());
+            horaLabel.setText(clase.getHoraReserva());
         } else {
 
             nombreClaseLabel.setText("");
             fechaLabel.setText("");
             nombreLabel.setText("");
-
+            horaLabel.setText("");
         }
 
     }
@@ -81,6 +87,7 @@ public class ClaseOverViewController {
     @FXML
     private void handleNewReserva() {
         Clase tempclase = new Clase();
+        //boolean okClicked = mainApp.showReservar(tempclase);
         boolean okClicked = mainApp.showReservar(tempclase);
         if (okClicked) {
             mainApp.getClaseData().add(tempclase);

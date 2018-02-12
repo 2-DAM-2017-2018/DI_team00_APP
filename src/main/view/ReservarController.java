@@ -48,35 +48,29 @@ public class ReservarController {
     private DatePicker calendario = new DatePicker();
     @FXML
     private ChoiceBox nombreClaseField2;
-    
-    
-    
-    
-    
-    
+    @FXML
+    private TextField horaField;
+    @FXML
+    private ChoiceBox horaField2;
+
     @FXML
     private ComboBox<String> listaClases;
-    
+
     @FXML
     private Button ok;
     @FXML
     private Button cancelar;
     @FXML
     private Button nuevaClase;
-    
 
     private Stage dialogStage;
     private Clase clase;
     private boolean okClicked = false;
     private ObservableList<String> clases = FXCollections.observableArrayList();
-    
-    
 
     public ReservarController() {
-        
-        
+
     }
-    
 
     @FXML
     private void initialize() {
@@ -87,17 +81,16 @@ public class ReservarController {
         this.dialogStage = dialogStage;
     }
 
-    public void setClase(Clase clase) 
-    {
+    public void setClase(Clase clase) {
         this.clase = clase;
-        
+
         //nombreClaseField.setText(clase.getNombreClase());
-        nombreClaseField2.setItems(FXCollections.observableArrayList("Aula 1","Aula 2","Aula 3","Aula de informática","Taller","Gimnasio"));
+        nombreClaseField2.setItems(FXCollections.observableArrayList("Aula 1", "Aula 2", "Aula 3", "Aula de informática", "Taller", "Gimnasio"));
+        horaField2.setItems(FXCollections.observableArrayList("08:00-09:00", "09:00-10:00", "10:00-11:00", "11:30-12:30", "12:30-13:30", "13:30-12:30", "17:00-18:00", "18:00-19:00"));
         nombreField.setText(clase.getNombre());
-        
 
     }
-    
+
     public boolean isOkClicked() {
         return okClicked;
 
@@ -105,17 +98,15 @@ public class ReservarController {
 
     @FXML
     private void handleOk() {
-        
+
         if (isInputValid()) {
-            
-           // clase.setNombreClase();
-            //clase.setNombreClase(nombreClaseField2.Integer.parseInt(nombreClaseField2.getValue().toString()));
+
             clase.setNombreClase(nombreClaseField2.getValue().toString());
             String date = calendario.getValue().format(DateTimeFormatter.ISO_DATE);
             clase.setFechaReserva(date);
+            clase.setHoraReserva(horaField2.getValue().toString());
             clase.setNombre(nombreField.getText());
-            
-            
+
             okClicked = true;
             dialogStage.close();
         }
@@ -123,27 +114,37 @@ public class ReservarController {
 
     @FXML
     private void handleCancel() {
-        
+
         dialogStage.close();
     }
-    
-    
 
     private boolean isInputValid() {
         String errorMessage = "";
-
-        /*if (nombreClaseField.getText() == null || nombreClaseField.getText().length() == 0) {
+        
+        /*if () {
             errorMessage += "Nombre de clase no válido!\n"; 
         }*/
-//        if (calendario.getValue().format(DateTimeFormatter.ISO_DATE) == null || calendario.getValue().format(DateTimeFormatter.ISO_DATE).length() == 0 ) {
-//            System.out.println("date not valid ??????? ");
-//            errorMessage += "Fecha no valida!\n"; 
-//        }
-        
-        if (nombreField.getText() == null || nombreField.getText().length() == 0) {
-            errorMessage += "Nombre no válido\n"; 
+       /* if (calendario.getValue().format(DateTimeFormatter.ISO_DATE) == null || calendario.getValue().format(DateTimeFormatter.ISO_DATE).length() == 0 ) 
+        {
+            errorMessage += "Fecha no valida!\n"; 
+        }*/
+       
+      //*******************************************
+        if(nombreClaseField2.getValue() == null)
+        {
+            errorMessage += "¡Nombre de clase no valido!"
+                          + " Seleccione un nombre.";
         }
-        
+        if (horaField2.getValue() == null )
+        {
+            errorMessage += "¡Hora no valida!\n"
+                          + " Seleccione una hora.";
+        }
+        if (nombreField.getText() == null || nombreField.getText().length() == 0) 
+        {
+            errorMessage += "Nombre no válido\n";
+        }
+
         if (errorMessage.length() == 0) {
             return true;
         } else {

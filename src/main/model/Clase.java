@@ -28,23 +28,23 @@ public class Clase {
     private final StringProperty nombreClase;
     private final StringProperty fechaReserva;
     private final StringProperty nombre;
-    
+    private final StringProperty hora;
 
     public Clase() {
 
         this.nombreClase = new SimpleStringProperty("");
         this.fechaReserva = new SimpleStringProperty("");
         this.nombre = new SimpleStringProperty("");
-        
+        this.hora = new SimpleStringProperty("");
         
     }
 
-    public Clase(String nombreClase, String fechaReserva, String nombre) {
+    public Clase(String nombreClase, String fechaReserva, String nombre, String hora) {
         
         this.nombreClase = new SimpleStringProperty(nombreClase);
         this.fechaReserva = new SimpleStringProperty(fechaReserva);
         this.nombre = new SimpleStringProperty(nombre);
-        
+        this.hora = new SimpleStringProperty(hora);
         
     }
     
@@ -71,6 +71,18 @@ public class Clase {
 
     public StringProperty fechaReservaProperty() {
         return fechaReserva;
+    }
+    
+    public String getHoraReserva() {
+        return hora.get();
+    }
+
+    public void setHoraReserva(String hora) {
+        this.hora.set(hora);
+    }
+
+    public StringProperty horaReservaProperty() {
+        return hora;
     }
     
     public String getNombre() {

@@ -8,26 +8,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ClaseOverViewController">
    <children>
-      <SplitPane prefHeight="400.0" prefWidth="296.0">
+      <SplitPane prefHeight="400.0" prefWidth="315.0">
          <items>
-            <TableView fx:id="claseTable" prefHeight="179.0" prefWidth="294.0">
+            <TableView fx:id="claseTable" prefHeight="398.0" prefWidth="320.0">
               <columns>
-                <TableColumn fx:id="claseColumn" prefWidth="144.0" text="Clases Reservadas" />
-                  <TableColumn fx:id="fechaColumn" prefWidth="150.0" text="Fecha" />
+                <TableColumn fx:id="claseColumn" prefWidth="117.0" text="Clases Reservadas" />
+                  <TableColumn fx:id="fechaColumn" prefWidth="109.0" text="Fecha" />
+                  <TableColumn fx:id="horaColumn" prefWidth="87.0" text="Hora" />
               </columns>
             </TableView>
          </items>
       </SplitPane>
-      <AnchorPane layoutX="296.0" prefHeight="402.0" prefWidth="304.0">
+      <AnchorPane layoutX="316.0" prefHeight="402.0" prefWidth="284.0">
          <children>
             <Button fx:id="reservaButton" layoutX="14.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleNewReserva" prefHeight="40.0" prefWidth="152.0" text="Reservar clase" />
-            <Label layoutX="16.0" layoutY="70.0" text="Nombre de la clase: " />
+            <Label layoutX="18.0" layoutY="79.0" text="Nombre de la clase: " />
             <Label fx:id="nombreClaseLabel" layoutX="200.0" layoutY="70.0" />
             <Label layoutX="16.0" layoutY="110.0" text="Fecha de la reserva de la clase: " />
             <Label fx:id="fechaLabel" layoutX="200.0" layoutY="110.0" />
             <Button fx:id="deleteButton" layoutX="16.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="40.0" prefWidth="152.0" text="Eliminar reserva" />
-            <Label layoutX="16.0" layoutY="152.0" text="Reservado por:" />
-            <Label fx:id="nombreLabel" layoutX="131.0" layoutY="152.0" />
+            <Label layoutX="16.0" layoutY="177.0" text="Reservado por:" />
+            <Label fx:id="nombreLabel" layoutX="126.0" layoutY="177.0" prefHeight="17.0" prefWidth="116.0" />
             <MenuBar layoutY="2.0" prefHeight="17.0" prefWidth="72.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Archivo">
@@ -40,6 +41,8 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <Label layoutX="14.0" layoutY="144.0" text="Hora de la reserva:" />
+            <Label fx:id="horaLabel" layoutX="142.0" layoutY="144.0" />
          </children>
       </AnchorPane>
    </children>
