@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ClaseOverViewController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@OrangeTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ClaseOverViewController">
    <children>
       <SplitPane prefHeight="400.0" prefWidth="315.0">
          <items>
@@ -29,7 +29,7 @@
             <Button fx:id="deleteButton" layoutX="16.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="40.0" prefWidth="152.0" text="Eliminar reserva" />
             <Label layoutX="16.0" layoutY="177.0" text="Reservado por:" />
             <Label fx:id="nombreLabel" layoutX="126.0" layoutY="177.0" prefHeight="17.0" prefWidth="116.0" />
-            <MenuBar layoutY="2.0" prefHeight="17.0" prefWidth="72.0">
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="130.0">
               <menus>
                 <Menu mnemonicParsing="false" text="Archivo">
                   <items>

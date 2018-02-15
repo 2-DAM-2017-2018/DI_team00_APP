@@ -11,16 +11,23 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author pedro
  */
 @XmlRootElement(name = "clase")
-public class ClaseListWrapper {
+public class ClaseListWrapper 
+{
 
-    private List<Clase> clases;
+    private List<Clase> clases;//Array de clases
 
+    /**
+     * Metodos get y set
+     * @return devuelve las clases
+     */
     @XmlElement(name = "clase")
-    public List<Clase> getClase() {
+    public List<Clase> getClase()
+    {
         return clases;
     }
 
-    public void setClases(List<Clase> clases) {
+    public void setClases(List<Clase> clases) 
+    {
         this.clases = clases;
 
     }

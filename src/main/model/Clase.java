@@ -23,14 +23,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *
  * @author pedro
  */
-public class Clase {
+public class Clase 
+{
 
-    private final StringProperty nombreClase;
-    private final StringProperty fechaReserva;
-    private final StringProperty nombre;
-    private final StringProperty hora;
+    /**
+     * Declaración de variables de clase 
+     */
+    private final StringProperty nombreClase;//Variable de tipo String
+    private final StringProperty fechaReserva;//Variable de tipo String
+    private final StringProperty nombre;//Variable de tipo String
+    private final StringProperty hora;//Variable de tipo String
 
-    public Clase() {
+    /**
+     * Cosntructor por defecto
+     */
+    public Clase() 
+    {
 
         this.nombreClase = new SimpleStringProperty("");
         this.fechaReserva = new SimpleStringProperty("");
@@ -38,8 +46,16 @@ public class Clase {
         this.hora = new SimpleStringProperty("");
         
     }
+    /**
+     * Constructor con parametros 
+     * @param nombreClase nombre de la clase
+     * @param fechaReserva fecha en la que se reserva la clase
+     * @param nombre nombre de la persona que reserva la clase
+     * @param hora hora de la reserva de la clase
+     */
 
-    public Clase(String nombreClase, String fechaReserva, String nombre, String hora) {
+    public Clase(String nombreClase, String fechaReserva, String nombre, String hora) 
+    {
         
         this.nombreClase = new SimpleStringProperty(nombreClase);
         this.fechaReserva = new SimpleStringProperty(fechaReserva);
@@ -47,53 +63,67 @@ public class Clase {
         this.hora = new SimpleStringProperty(hora);
         
     }
-    
-    public String getNombreClase() {
+    /**
+     * Metodos get y set
+     * 
+     */
+    public String getNombreClase()
+    {
         return nombreClase.get();
     }
-
-    public void setNombreClase(String nombreClase) {
+    public void setNombreClase(String nombreClase)
+    {
         this.nombreClase.set(nombreClase);
     }
 
-    public StringProperty nombreClaseProperty() {
+    public StringProperty nombreClaseProperty() 
+    {
         return nombreClase;
     }
 
 
-    public String getFechaReserva() {
+    public String getFechaReserva() 
+    {
         return fechaReserva.get();
     }
 
-    public void setFechaReserva(String fechaReserva) {
+    public void setFechaReserva(String fechaReserva) 
+    {
         this.fechaReserva.set(fechaReserva);
     }
 
-    public StringProperty fechaReservaProperty() {
+    public StringProperty fechaReservaProperty() 
+    {
         return fechaReserva;
     }
     
-    public String getHoraReserva() {
+    public String getHoraReserva() 
+    {
         return hora.get();
     }
 
-    public void setHoraReserva(String hora) {
+    public void setHoraReserva(String hora)
+    {
         this.hora.set(hora);
     }
 
-    public StringProperty horaReservaProperty() {
+    public StringProperty horaReservaProperty() 
+    {
         return hora;
     }
     
-    public String getNombre() {
+    public String getNombre() 
+    {
         return nombre.get();
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre)
+    {
         this.nombre.set(nombre);
     }
 
-    public StringProperty nombreProperty() {
+    public StringProperty nombreProperty() 
+    {
         return nombre;
     }
     

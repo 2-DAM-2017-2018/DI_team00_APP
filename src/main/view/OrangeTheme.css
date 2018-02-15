@@ -1,0 +1,77 @@
+
+
+
+
+.background {
+    -fx-background-color: #FFE9B1;
+}
+
+.label {
+    -fx-font-size: 8pt;
+    -fx-font-family: "Lucida Sans";
+    -fx-text-fill: black;
+    
+}
+
+.table-view {
+    -fx-base: #c0c0c0;
+    -fx-control-inner-background: #FFE9B1;
+    -fx-background-color: #FFE9B1;
+    -fx-table-cell-border-color: black;
+    -fx-table-header-border-color: black;
+    -fx-padding: 5;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: #c0c0c0;
+    
+    
+}
+.menu-bar {
+    -fx-background-color: #FFE9B1;
+}
+
+.context-menu {
+    -fx-background-color: #FFE9B1;
+}
+
+.menu-bar .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Lucida Sans";
+    -fx-text-fill: black;
+    -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
+
+.text-field {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Lucida Sans";
+}
+
+.button {
+    -fx-padding: 5 22 5 22;   
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #FFE9B1;
+    -fx-font-family: "Lucida Sans", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: black;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover{
+    
+    -fx-border-color: #c0c0c0;
+}
+
+.button:focused {
+    -fx-border-color: blue, blue;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}

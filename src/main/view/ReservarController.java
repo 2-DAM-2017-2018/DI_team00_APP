@@ -38,35 +38,42 @@ import main.model.Clase;
  */
 public class ReservarController {
 
+    /**
+     * Variables de clase 
+     */
     @FXML
-    private TextField nombreClaseField;
+    private TextField añadirClase;
     @FXML
-    private TextField fechaField;
+    private TextField nombreClaseField;//Creación de un textField 
     @FXML
-    private TextField nombreField;
+    private TextField fechaField;//Creación de un textField 
     @FXML
-    private DatePicker calendario = new DatePicker();
+    private TextField nombreField;//Creación de un textField 
     @FXML
-    private ChoiceBox nombreClaseField2;
+    private DatePicker calendario = new DatePicker();//Creación de un DatePicker(Calendario)
     @FXML
-    private TextField horaField;
+    private ChoiceBox nombreClaseField2;//Creación de un un ChoiceBox
     @FXML
-    private ChoiceBox horaField2;
+    private TextField horaField;//Creación de un TextField
+    @FXML
+    private ChoiceBox horaField2;//Creación de un ChoiceBox
 
     @FXML
-    private ComboBox<String> listaClases;
+    private ComboBox<String> listaClases;//Creación de un comboBox
 
     @FXML
-    private Button ok;
+    private Button ok;//Creacion del boton "ok"
     @FXML
-    private Button cancelar;
+    private Button cancelar;//Creación del boton "cancelar"
     @FXML
-    private Button nuevaClase;
-
-    private Stage dialogStage;
-    private Clase clase;
-    private boolean okClicked = false;
-    private ObservableList<String> clases = FXCollections.observableArrayList();
+    private Button nuevaClase;//Creaciónd del boton "nueva clase"
+    @FXML 
+    private Button añadir;
+    
+    private Stage dialogStage;//Creación de un obejeto
+    private Clase clase;//Creación de obejeto 
+    private boolean okClicked = false;//Variable de tipo boleano
+    private ObservableList<String> clases = FXCollections.observableArrayList();//Creación de ArrayList
 
     public ReservarController() {
 
@@ -77,27 +84,46 @@ public class ReservarController {
 
     }
 
-    public void setDialogStage(Stage dialogStage) {
+    /**
+     * Metdo set
+     * @param dialogStage establece el dialogo
+     */
+    public void setDialogStage(Stage dialogStage) 
+    {
         this.dialogStage = dialogStage;
     }
 
-    public void setClase(Clase clase) {
+    /**
+     * Metodo set
+     * @param clase 
+     */
+    public void setClase(Clase clase) 
+    {   
+        
         this.clase = clase;
-
-        //nombreClaseField.setText(clase.getNombreClase());
+        
+        //Inserta los valores 
+        
         nombreClaseField2.setItems(FXCollections.observableArrayList("Aula 1", "Aula 2", "Aula 3", "Aula de informática", "Taller", "Gimnasio"));
         horaField2.setItems(FXCollections.observableArrayList("08:00-09:00", "09:00-10:00", "10:00-11:00", "11:30-12:30", "12:30-13:30", "13:30-12:30", "17:00-18:00", "18:00-19:00"));
         nombreField.setText(clase.getNombre());
 
     }
-
-    public boolean isOkClicked() {
+    /**
+     * Metodo que inicia el boton "ok"
+     * @return 
+     */
+    public boolean isOkClicked()
+    {
         return okClicked;
 
     }
-
+    /**
+     * Una vez presionado el boton carga los datos 
+     */
     @FXML
-    private void handleOk() {
+    private void handleOk() 
+    {
 
         if (isInputValid()) {
 
@@ -112,24 +138,26 @@ public class ReservarController {
         }
     }
 
+    /**
+     * Boton que cancela lo que se este realizando y sale de la pantalla reservar
+     */
     @FXML
-    private void handleCancel() {
+    private void handleCancel() 
+    {
 
         dialogStage.close();
     }
 
-    private boolean isInputValid() {
+    /**
+     * Mesange de error
+     * @return devielve los mensajes de error
+     */
+    private boolean isInputValid() 
+    {
         String errorMessage = "";
-        
-        /*if () {
-            errorMessage += "Nombre de clase no válido!\n"; 
-        }*/
-       /* if (calendario.getValue().format(DateTimeFormatter.ISO_DATE) == null || calendario.getValue().format(DateTimeFormatter.ISO_DATE).length() == 0 ) 
-        {
-            errorMessage += "Fecha no valida!\n"; 
-        }*/
        
-      //*******************************************
+        
+         
         if(nombreClaseField2.getValue() == null)
         {
             errorMessage += "¡Nombre de clase no valido!"
@@ -145,9 +173,12 @@ public class ReservarController {
             errorMessage += "Nombre no válido\n";
         }
 
-        if (errorMessage.length() == 0) {
+        if (errorMessage.length() == 0) 
+        {
             return true;
-        } else {
+        }
+        else 
+        {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);

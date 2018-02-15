@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ReservarController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@OrangeTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.ReservarController">
   <children>
     <Button fx:id="ok" layoutX="206.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
     <Button fx:id="cancelar" layoutX="314.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />

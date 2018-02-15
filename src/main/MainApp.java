@@ -33,54 +33,69 @@ public class MainApp extends Application {
   
     
     
-    private Stage primaryStage;
-    private AnchorPane rootLayout;
+    private Stage primaryStage;//Crea la primera ventana
+    private AnchorPane rootLayout; //Creación de un "Anchor Pane"
     
-    private ObservableList<Clase> claseData = FXCollections.observableArrayList();
+    private ObservableList<Clase> claseData = FXCollections.observableArrayList();//Array de listas que almacena los datos de la clase 
     
+    /**
+     * Metodo que inicializa la aplicación
+     * @param stage 
+     */
     @Override
-    public void start(Stage stage) {
-        this.primaryStage = stage;
-        this.primaryStage.setTitle("App de Reserva");
-        
-        // set the application icon
-        
-        
-        initClaseOverView();
-        
-
-    }
-
-    public MainApp() {
-        claseData.add(new Clase("Aula 1", "2018-01-09", "Pedro", "08:00-09:00"));
-        claseData.add(new Clase("Aula 1", "2018-02-10", "Antonio", "09:00-10:00"));
-       
+    public void start(Stage stage) 
+    {
+      
+        this.primaryStage = stage;//Inicia la app
+        this.primaryStage.setTitle("App de Reserva");//Titulo de la app
+   
+        initClaseOverView();//Metodo que llama a la ventana
         
 
     }
-    
-     public ObservableList<Clase> getClaseData() {
+    /**
+     * Main
+     */
+    public MainApp() 
+    {
+        claseData.add(new Clase("Aula 1", "2018-01-09", "Pedro", "08:00-09:00"));//Agregamos datos por defecto al Array
+        claseData.add(new Clase("Aula 1", "2018-02-10", "Antonio", "09:00-10:00"));//Agregamos datos por defecto al Array
+      
+    }
+    /**
+     * Metodo get
+     * @return Devuelve las reservas realizadas
+     */
+    public ObservableList<Clase> getClaseData() 
+    {
         return claseData;
     }
 
-    public void initClaseOverView() {
-        try {
+    /**
+     * Metodo que inicia la ventana clase
+     */
+    public void initClaseOverView() 
+    {
+        try 
+        {
              // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/ClaseOverView.fxml"));
             rootLayout = (AnchorPane) loader.load();
 
-            // Show the scene containing the root layout.
+            // Muestra la escena que contiene el diseño de la raíz.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
 
-            // Give the controller access to the main app.
+            //Da el acceso al controlador a la aplicación principal.
             ClaseOverViewController controller = loader.getController();
             controller.setMainApp(this);
 
             primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();//Lanza una excepcion es caso de error
         }
 
         
@@ -88,15 +103,20 @@ public class MainApp extends Application {
     
     
     
-    
-    public boolean showReservar(Clase clase) {
+    /**
+     * Inicia la ventana pulsando el boton reservar
+     * @param clase objeto
+     * @return devuelve la ventana
+     */
+    public boolean showReservar(Clase clase) 
+    {
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
+            //Cargua el archivo fxml y cree una nueva etapa para el diálogo emergente.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/Reservar.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
+            //Creaa el cuadro de la etapa de dialogo.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Reservar");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -104,16 +124,14 @@ public class MainApp extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
+            //Configura a la reserva en el controlador.
             ReservarController controller = loader.getController();
             
             controller.setDialogStage(dialogStage);
             controller.setClase(clase);
 
-            // Set the dialog icon.
-    //        dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
 
-            // Show the dialog and wait until the user closes it
+            //Muestra la ventana reservar y esperar hasta que el usuario lo cierre
             dialogStage.showAndWait();
 
             return controller.isOkClicked();
@@ -123,16 +141,26 @@ public class MainApp extends Application {
         }
     }
     
-    
-    public Stage getPrimaryStage() {
+    /**
+     * Metodo get
+     * @return devuelve la ventana principal
+     */
+    public Stage getPrimaryStage()
+    {
         return primaryStage;
     }
 
-    public static void main(String[] args) {
+   
+    public static void main(String[] args) 
+    {
         launch(args);
     }
-    
-    public File getClaseFilePath() {
+    /**
+     * Metodo get
+     * @return 
+     */
+    public File getClaseFilePath() 
+    {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         String filePath = prefs.get("filePath", null);
         if (filePath != null) {
@@ -141,39 +169,48 @@ public class MainApp extends Application {
             return null;
         }
     }
-    
-    public void setClaseFilePath(File file) {
+    /**
+     * Metodo set
+     * @param file 
+     */
+    public void setClaseFilePath(File file) 
+    {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
         if (file != null) {
             prefs.put("filePath", file.getPath());
 
-            // Update the stage title.
+            // Actualiza el título de la etapa.
             primaryStage.setTitle("App de reserva - " + file.getName());
         } else {
             prefs.remove("filePath");
 
-            // Update the stage title.
+            // Actualiza el título de la etapa.
             primaryStage.setTitle("App de reserva");
         }
     }
-    
-    public void saveClaseDataToFile(File file) {
+    /**
+     * Metodo que guarda los datos
+     * @param file 
+     */
+    public void saveClaseDataToFile(File file) 
+    {
         try {
             JAXBContext context = JAXBContext
                     .newInstance(ClaseListWrapper.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            // Wrapping our person data.
+            // Envolviendo la información.
             ClaseListWrapper wrapper = new ClaseListWrapper();
             wrapper.setClases(claseData);
 
-            // Marshalling and saving XML to the file.
+            //lineación y guardado de XML en el archivo.
             m.marshal(wrapper, file);
 
-            // Save the file path to the registry.
+            //Guarde la ruta del archivo en el registro.
             setClaseFilePath(file);
-        } catch (Exception e) { // catches ANY exception
+        } catch (Exception e) 
+        { // catches ANY exception
     //                Dialogs.create().title("Error")
     //                .masthead("Could not save data to file:\n" + file.getPath())
     //                .showException(e);
@@ -195,7 +232,9 @@ public class MainApp extends Application {
            // Save the file path to the registry.
            setClaseFilePath(file);
 
-       } catch (Exception e) { // catches ANY exception
+       } 
+       catch (Exception e) 
+       { // catches ANY exception
    //        Dialogs.create()
    //                .title("Error")
    //                .masthead("Could not load data from file:\n" + file.getPath())
