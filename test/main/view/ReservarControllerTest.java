@@ -44,40 +44,65 @@ public class ReservarControllerTest {
      */
     
     @Test
-    public void testSetDialogStage() {
+    public void testSetDialogStage() 
+    {
+        try
+        {
         System.out.println("setDialogStage");
         Stage dialogStage = null;
         ReservarController instance = new ReservarController();
         instance.setDialogStage(dialogStage);
+        }
+        catch(Exception e)
+        {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+        }
     }
 
     /**
      * Test of setClase method, of class ReservarController.
      */
     @Test
-    public void testSetClase() {
+    public void testSetClase() 
+    {
+        try
+        {
         System.out.println("setClase");
         Clase clase = null;
         ReservarController instance = new ReservarController();
         instance.setClase(clase);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        }
+        catch (Exception eo) 
+        {
+            // TODO review the generated test code and remove the default call to fail.
+            fail("The test case is a prototype.");
+        }
+        
     }
 
     /**
      * Test of isOkClicked method, of class ReservarController.
      */
     @Test
-    public void testIsOkClicked() {
-        System.out.println("isOkClicked");
-        ReservarController instance = new ReservarController();
-        boolean expResult = false;
-        boolean result = instance.isOkClicked();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testIsOkClicked() 
+    {
+        try
+        {
+            System.out.println("isOkClicked");
+            ReservarController instance = new ReservarController();
+            boolean expResult = false;
+            boolean result = instance.isOkClicked();
+            assertEquals(expResult, result);
+            
+        }
+        catch(Exception eoe)
+        {
+            // TODO review the generated test code and remove the default call to fail.
+            fail("The test case is a prototype.");
+        }
+       
+     
     }
     
 }

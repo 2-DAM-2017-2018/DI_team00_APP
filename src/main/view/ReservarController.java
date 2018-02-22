@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import main.MainApp;
 import main.model.Clase;
 
+
 /**
  * FXML Controller class
  *
@@ -107,6 +108,7 @@ public class ReservarController {
         nombreClaseField2.setItems(FXCollections.observableArrayList("Aula 1", "Aula 2", "Aula 3", "Aula de informática", "Taller", "Gimnasio"));
         horaField2.setItems(FXCollections.observableArrayList("08:00-09:00", "09:00-10:00", "10:00-11:00", "11:30-12:30", "12:30-13:30", "13:30-12:30", "17:00-18:00", "18:00-19:00"));
         nombreField.setText(clase.getNombre());
+        
 
     }
     /**
@@ -157,7 +159,7 @@ public class ReservarController {
         String errorMessage = "";
        
         
-         
+        
         if(nombreClaseField2.getValue() == null)
         {
             errorMessage += "¡Nombre de clase no valido!"
